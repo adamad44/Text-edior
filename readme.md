@@ -39,5 +39,5 @@ Note:
 - This text editor is specifically designed for Windows 10 and newer operating systems. If used on other systems, there may be errors or limited functionality.
 - This editor is intended for basic text editing and running Python scripts. It does not provide advanced features like syntax highlighting or code completion.
 
-Enjoy using the Text Editor! If you encounter any issues or have suggestions for improvement, feel free to contact me: adam.python3@gmail.com
+Enjoy using the Text Editor! If you encounter any issues or have suggestions for improvement, feel free to submit an issue or create a pull request
 
