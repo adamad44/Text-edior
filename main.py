@@ -1,4 +1,6 @@
-# Import necessary modules
+# Import all modules
+
+
 try:
     from tkinter import *
     import tkinter as tk
