@@ -29,6 +29,7 @@ def main():
     root = tk.Tk()
     root.title("Text Editor")
     root.config(bg='#181915')
+    root.minsize(500,720)
 
     # If the OS is not Windows, show a warning message to the user
     if not is_windows():
@@ -104,39 +105,6 @@ def main():
             run_py_button.pack_forget()
 
     # Function to open the settings window
-    def open_settings():
-        # Create a new top-level window for settings
-        global master
-        master = Toplevel(root)
-        master.config(bg='#181915')
-        master.geometry(f'{int(GetSystemMetrics(0)/1.9)}x{int(GetSystemMetrics(1)/1.9)}')
-        
-        # Label and entry to adjust text size
-        textsize_label = Label(master, text='Text Size:', bg='#181915', fg='#F8F8F2', font='verdana 17')
-        textsize_label.pack(side=TOP)
-        global textsize_entry
-        textsize_entry = Entry(master, font='verdana 14', bg='grey')
-        textsize_entry.pack(side=TOP)
-        
-        # Submit button to apply the selected text size
-        submit_textsize = Button(master, text='Submit', bg='#181915', fg='#F8F8F2', font='verdana 14', command=font_submit)
-        submit_textsize.pack(side=TOP)
-
-    # Function to submit the selected font size for the text box
-    def font_submit():
-        try:
-            text_size = int(textsize_entry.get())
-            if text_size > 0:
-                text_box.config(font=f'verdana {text_size}')
-                master.destroy()
-            else:
-                # Show an error message if an invalid font size is entered
-                error_textsize.config(text="Invalid font size.")
-                error_textsize.pack()
-        except ValueError:
-            # Show an error message if an invalid font size is entered
-            error_textsize.config(text="Invalid font size.")
-            error_textsize.pack()
 
     # Create the "Choose File" button
     choose_file = Button(root, text='Choose File', command=choose_file_and_open, bg='#20211C', font='verdana 13', padx=10, pady=10, fg='#c9c9c5')
@@ -149,7 +117,7 @@ def main():
     run_py_button = Button(root, text='▶', command=run, font='verdana 13', padx=10, pady=10, bg='#20211C', fg='#F8F8F2')
 
     # Create the text box
-    text_box = Text(root, bg='#282923', fg='#F8F8F2', font='verdana 13', highlightthickness=0, padx=6, pady=6, height=30, width=140, wrap='none')
+    text_box = Text(root, bg='#282923', fg='#F8F8F2', font='verdana 13', highlightthickness=0, padx=6, pady=6, height=30, width=140, wrap='word')
     text_box.pack(padx=8, pady=12)
 
     # Start the main event loop
